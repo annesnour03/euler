@@ -2,8 +2,6 @@ import time
 import decimal
 
 def keywithmaxval(d):
-     """ a) create a list of the dict's keys and values; 
-         b) return the key with the max value"""  
      v=list(d.values())
      k=list(d.keys())
      return k[v.index(max(v))]
@@ -11,7 +9,6 @@ def keywithmaxval(d):
 def determine_recur(frac):
     for i in range(1,(len(frac))):
         s = frac[:i]
-        # print(frac[i - 1:])
         ratio = (len(frac) // len(s))
         if ratio * s == frac:
             return int(s)

@@ -1,16 +1,16 @@
+#include <limits.h>
 #include <math.h>
 #include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <limits.h>
 
 bool even_divisible(int num, int range) {
   int counter = 0;
   for (int i = 1; i <= range; i++) {
     if (!(num % i)) counter++;
   }
-return counter == range ? true : false;
+  return counter == range ? true : false;
 }
 
 int main(void) {
