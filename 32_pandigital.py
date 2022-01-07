@@ -26,9 +26,6 @@ def solve():
         for j in range(10000 // i):  # this //i reduces time by 150sec....
             if check_pandigital(i, j, i * j) == True:
                 res.add((i * j))
-        if i % 1000 == 0:
-            print("op de helft", i, j)
-
     return res
 
 

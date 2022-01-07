@@ -1,1 +1,1 @@
-ispalin(i) and 
+print("LMFAO")

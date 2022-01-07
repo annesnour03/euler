@@ -32,4 +32,3 @@ def main():
     print("time = ",t1-t0)
 if __name__ == "__main__":
     main()
-    # clear ; python3 -u "/mnt/c/Users/annes/Desktop/codee/personal code/euler/23_non_abundant.py"
