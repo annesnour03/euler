@@ -1,0 +1,1 @@
+ispalin(i) and 
