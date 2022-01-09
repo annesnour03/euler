@@ -24,6 +24,7 @@ def find_real_max(res,prec):
     for i in range(len(res)):
         if(res.get(keywithmaxval(res)) == (prec // 2) + 1):
             res.pop(keywithmaxval(res))
+    return res
 def main():
     prec = decimal.getcontext().prec = 2000
     res  = {}
@@ -46,7 +47,7 @@ def main():
     res = find_real_max(res,prec)
 
 
-    print(keywithmaxval(res))
+    print(keywithmaxval(res)) #106s
     t1 = time.time()
     print("time = ", t1 - t0)
 
