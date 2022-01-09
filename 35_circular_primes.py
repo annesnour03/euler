@@ -35,9 +35,6 @@ def solve():
                 counter+=1
     return ans,counter
 
-
-
-
 def main():
     t0 = time.time()
     print(solve()) #2.3sec

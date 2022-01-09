@@ -11,9 +11,11 @@ def sum_power(i):
 
 def main():
     t0 = time.time()
+    print(sum(map(int, str(2**1000))))
+    assert 0
     sum_power(1000)
     t1 = time.time()
     print("time = ",t1-t0)
-    
+
 if __name__ == "__main__":
     main()

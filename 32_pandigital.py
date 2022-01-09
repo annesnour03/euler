@@ -4,7 +4,6 @@ import math
 
 numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 
-
 def check_pandigital(first, second, third):
     first, second, third = str(first), str(second), str(third)
     combined = first + second + third

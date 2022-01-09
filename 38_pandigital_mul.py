@@ -19,13 +19,14 @@ def check_pandigital(x):
 
 def solve():
     res = []
-    for i in range(2,10):
+    for j in range(1,10000):
         com = ""
-        print(i)
-        for j in range(10000000,99999999):
-            com = str(i) + str(j)
+        for k in range(1,10000):
+            com += str(k * j)
             if (check_pandigital(int(com))):
-                res.append(int(com))
+                res.append(com)
+            if(len(com) > 9):
+                break
 
     return res
 

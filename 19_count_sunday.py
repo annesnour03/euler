@@ -24,7 +24,6 @@ month = {
     12: "december",
 }
 
-
 def main():
     t0 = time.time()
     day = 0
@@ -78,7 +77,6 @@ def main():
     print(sunday_counter,"sunday's")
     t1 = time.time()
     print("time = ", t1 - t0)
-
 
 if __name__ == "__main__":
     main()

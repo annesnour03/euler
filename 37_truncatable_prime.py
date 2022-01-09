@@ -37,8 +37,6 @@ def checkr(x):
         x = cut(x,-1)
     return True
 
-
-
 def solve():
     res = []
     for i in range(8, 1000000):
