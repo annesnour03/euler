@@ -1,2 +1,3 @@
-if(res.get(keywithmaxval(res)) == (prec // 2) + 1):
-        print(res.pop(keywithmaxval(res)))
+                diff = abs(i - seq[j])
+                if(diff != 0):
+                    overlap[diff] +=1
