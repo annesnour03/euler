@@ -14,32 +14,35 @@ def isprime(x):
 
 def getprimes(limit):
     res = [2]
-    for i in range(1,limit,2):
+    total = 0
+    for i in range(1, limit, 2):
         if(isprime(i)):
             res.append(i)
+            total += i
+        if (total > limit):
+            return res
     return res
+
 
 def solve(limit):
     primes = getprimes(limit)
-    res = {}
-    for a in primes[::-1]:
-        print(a)
-        for i in range(int(mt.sqrt(a)) + 1):
-            for j in range(int(mt.sqrt(a)) + 1,i,-1):
-                temp_sump = sum(primes[i:j])
-                if(list(res.keys()).count(a) == 0 and temp_sump == a):
-                        res[a] = len(primes[i:j])
-    return res
+    res = []
+    l2 = 0
+    for i in range(len(primes)):
+        for j in range(i, len(primes)):
+            cut_primes = primes[i:j]
+            temp_sump = sum(cut_primes)
+            l = len(cut_primes)
+            if(l >= l2 and isprime(temp_sump)):
+                res.append(temp_sump)
+                l2 = l
+    return res[-1]
 
-def keywithmaxval(d):
-     v=list(d.values())
-     k=list(d.keys())
-     return k[v.index(max(v))]
-    
+
 def main():
     t0 = time.time()
-    ans = solve(1000)
-    print(keywithmaxval(ans))
+    ans = solve(int(1e6)) # 0.14 sec
+    print(ans)
     print("time = ", "\x1b[6;30;42m", time.time() - t0, "\x1b[0m")
 
 
