@@ -11,7 +11,7 @@ def isprime(x):
             return False
     return True
 
-
+# Only get primes that in total sum up below given limit
 def getprimes(limit):
     res = [2]
     total = 0
@@ -33,6 +33,7 @@ def solve(limit):
             cut_primes = primes[i:j]
             temp_sump = sum(cut_primes)
             l = len(cut_primes)
+
             if(l >= l2 and isprime(temp_sump)):
                 res.append(temp_sump)
                 l2 = l
@@ -41,7 +42,7 @@ def solve(limit):
 
 def main():
     t0 = time.time()
-    ans = solve(int(1e6)) # 0.14 sec
+    ans = solve(int(1e6))  # 0.14 sec
     print(ans)
     print("time = ", "\x1b[6;30;42m", time.time() - t0, "\x1b[0m")
 
