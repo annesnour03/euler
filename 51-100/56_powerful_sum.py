@@ -1,17 +1,22 @@
 import time
-import sys
-import math
 
+def solve(limit):
+    digital_sum = lambda x: sum([int(i) for i in str(x)])
+    largest = 0
+    for a in range(limit):
+        for b in range(limit):
+            total_sum = digital_sum(a ** b)
+            if( total_sum > largest):
+                largest = total_sum
+    return largest
 
-def solve():
-    s = 1
 
 
 def main():
     t0 = time.time()
-    ans = solve()
+    ans = solve(100)
     print(ans)
-    print("time = ", "\x1b[6;30;42m", time.time() - t0, "\x1b[0m")
+    print("time = ", "\x1b[2;30;42m", time.time() - t0, "\x1b[0m")
 
 
 if __name__ == "__main__":

@@ -144,7 +144,7 @@ def main():
     t0 = time.time()
 
     ans = solve()
-    print(ans)
+    print(ans) # 0.13s
     print("time = ", "\x1b[6;30;42m", time.time() - t0, "\x1b[0m")
 
 
