@@ -15,7 +15,7 @@ def solve(limit):
 def main():
     t0 = time.time()
     ans = solve(100)
-    print(ans)
+    print(ans) #0.07 s
     print("time = ", "\x1b[2;30;42m", time.time() - t0, "\x1b[0m")
 
 
