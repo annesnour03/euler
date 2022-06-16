@@ -1,10 +1,12 @@
+from tabnanny import check
 import time
 import sys
 import math
 
 
 def isprime(x):
-    if  x <= 1:
+    """Checks if a given number is a prime."""
+    if x <= 1:
         return False
     for i in range(2, int(math.sqrt(x)) + 1):
         if x % i == 0:
@@ -12,43 +14,42 @@ def isprime(x):
     return True
 
 
-def cut(x, dir):
+def cut(x, side):
+    """Cuts a piece off of a number depending on which side is specified."""
     if x < 10:
         return x
-    x = list(str(x))
-    x.pop(dir)
-    x = int("".join(x))
-    return x
+    if side == "last":
+        return x//10
+    if side == "first":
+        return int(str(x)[1:])
 
 
-def checkl(x):
+def check_general(x, side):
+    """Checks if a number is a truncatable prime."""
     length = int(math.log10(x)) + 1
-    for i in range(length):
+    for _ in range(length):
         if(isprime(x) == False):
             return False
-        x = cut(x,0)
+        x = cut(x, side)
     return True
 
-def checkr(x):
-    length = int(math.log10(x)) + 1
-    for i in range(length):
-        if(isprime(x) == False):
-            return False
-        x = cut(x,-1)
-    return True
 
-def solve():
+def check_truncatable(x):
+    return check_general(x, "last") and check_general(x, "first")
+
+
+def solve(limit):
     res = []
-    for i in range(8, 1000000):
-        if(checkl(i) and checkr(i)):
+    for i in range(8, limit):
+        if(check_truncatable(i)):
             res.append(i)
     return res
 
 
 def main():
     t0 = time.time()
-    ans = solve()
-    print(ans,sum(ans))
+    ans = solve(1000000)
+    print(ans, sum(ans))
 
     print("time = ", "\x1b[6;30;42m", time.time() - t0, "\x1b[0m")
 
