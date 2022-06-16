@@ -1,2 +1,4 @@
 # euler
-900, 909, 911, 919, 922, 929, 933, 939, 944, 949, 955, 959, 966, 969, 977, 979, 988, 989, 990, 991, 992, 993, 994, 995, 996, 997, 998, 999
+This is a repository for the euler questions.
+
+The repository is split into sections of 50 questions. Mostly written in python, but some questions were answered in C.
