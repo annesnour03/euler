@@ -129,7 +129,7 @@ def main():
     LENGTH_OF_SET = 6
     ans = list(solve(10 ** DIGITS,LENGTH_OF_SET))
     for i in ans:
-        print(sorted(i),len(ans),sum(map(int,i)))
+        print(sorted(i),sum(map(int,i)))
 
     print("time = ", "\x1b[2;30;42m", time.time() - t0, "\x1b[0m") # 3s
 
