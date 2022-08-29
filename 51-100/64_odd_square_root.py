@@ -5,7 +5,7 @@ import sympy as sp
 sys.setrecursionlimit(5000)
 
 def fraction(x):
-    initial=sp.N(sp.sqrt(x), 5000)
+    initial=sp.N(sp.sqrt(x), 2000)
 
     prev_x = initial
     prev_a = math.floor(initial)
@@ -20,26 +20,31 @@ def fraction(x):
         prev_x = x1
         prev_a = a1
     return res
+
 def find_longest_repeat(sequence:list):
-    a = '-'.join(str(m) for m in sequence)
-    print(a)
-    i = (a+"-"+a).find(a, 1, -1)
-    return find_longest_repeat(sequence[:-1]) if i == -1 else a[:i]
+    split_out = '-'.join(str(m) for m in sequence)
+    while True:
+        i = (split_out+"-"+split_out).find(split_out, 1, -1)
+        if i == -1:
+            # Remove all after last "-"
+            split_out = "-".join(split_out.split("-")[:-1])
+        else:
+            return split_out[:i]
 
 def solve(limit):
-    seq = find_longest_repeat(fraction(13)[1:])
-    print(len(seq.split('-')),seq)
-    # for i in range(2,14):
-        # seq = fraction(i)
-        # if seq:
-        #     print(seq)
-
-
+    res = []
+    for i in range(2,limit + 1):
+        if sp.sqrt(i).is_integer:
+            continue
+        seq = find_longest_repeat(fraction(i)[1:]).split('-')
+        # Filter emptys
+        seq = [x for  x in seq if x]
+        res.append((seq))
+    return len([*filter(lambda x: len(x) %2 ,res)])
 def main():
     t0 = time.time()
     ans = solve(10000)
     print(ans)
-
     print("time = ", "\x1b[2;30;42m", time.time() - t0, "\x1b[0m")
 
 
